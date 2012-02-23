@@ -1,0 +1,1 @@
+Icons from the [Iconic set](http://somerandomdude.com/work/iconic/) by [somerandomdude.com](http://somerandomdude.com/)

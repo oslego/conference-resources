@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>HTML5 Input Demos</title>
+    <meta charset="UTF-8">
+    <style type="text/css">
+    
+     body{    
+         height:100%;
+         width:560px;  
+         background: #e4e4e4; 
+         margin:50px auto 400px;
+         font-family:Helvetica, Arial, sans-serif;    
+         font-size:130%;
+     }   
+                                                      
+     
+     h1{          
+         font-size:46px;
+         margin:0 0 20px;             
+         padding: 0 0 15px;
+         border-bottom:3px solid black;
+     }   
+       
+       
+     div[id ^= "demo-"]{
+         margin:250px 0 500px;    
+     }       
+     
+     h2{    
+         margin:150px 0 20px;
+         color:purple;
+     }  
+     
+     label{
+         font-size:1.3em;
+     }
+     
+     #demo-range input{ 
+         margin:25px 15px 0;
+         width:200px;
+     } 
+     
+     #demo-range .output{ 
+         background:red;
+         color:white;
+         display:inline-block;
+         padding:3px 5px;
+         font-weight:bold;
+     }  
+     
+     #demo-search input{
+         font-size:2em;
+     }   
+     
+     
+     .wide-input input{
+         font-size:1.3em;
+         display:block;
+         margin:10px 0 20px;
+     }  
+     
+     .wide-input input:not([type="submit"]){
+          width:300px;
+      }
+     
+     
+    </style>
+</head>
+<body>   
+    
+    <h1>HTML5 inputs</h1>          
+    
+    <div id="demo-range">
+        <h2>Range input</h2>
+        <label for="range">Looking for a room under <span class="output">$50</span></label>
+        <div>
+            <span> $0</span> <input type="range" id="range" max="100" min="1" value="50" /> <span> $100 </span>
+        </div>
+    </div> 
+    
+    <div id="demo-search">
+        <h2>Search input</h2>  
+        <form action="#" method="get">
+        <input type="search" placeholder="Search for... " results="3" name="car"  /> 
+
+        <input type="submit" />
+        </form>
+    </div>
+    
+    
+    <div id="demo-autocomplete" class="wide-input">
+        <h2>Autocomplete</h2>
+        
+        <h3>Caută Asigurare RCA</h3> 
+        <form action="#demo-autocomplete" method="get">
+            <label>Nume</label>
+            <input type="text" name="name" />            
+               
+            <label>Email</label>
+            <input type="email" name="email" required />
+            
+            <label>Cod Numeric Personal</label>
+            <input type="text" name="cnp"  />
+            
+            <label>Serie șasiu</label>
+            <input type="text" name="vin" placeholder="pozitia E in talon" />           
+               
+            <input type="submit" />
+        </form>
+    </div>   
+    
+    
+    <div id="demo-validation" class="wide-input">
+        <h2>Validation</h2>  
+        
+        <h3>Default error</h3>
+        <form action="#demo-validation" method="get">
+            <label>Nume</label>
+            <input type="text" name="name" required />            
+            
+            <input type="submit" />
+        </form>   
+        
+        <h3>Custom error</h3>
+        <form action="#demo-validation" method="get" >
+            <label>Nume</label>
+            <input type="text" name="name" class="custom" title="Cum te strigă lumea pe stradă" required />            
+            
+            <input type="submit" />
+        </form>
+    </div> 
+    
+    
+    
+    <div id="demo-pattern" class="wide-input">
+        <h2>Pattern</h2>  
+        
+        <form action="#demo-pattern" method="get">
+            <label>Card number</label>
+            <input type="text" name="card" pattern="[0-9]{3}" title="The number of your credit card" required/>            
+            
+            <input type="submit" />
+        </form>   
+    </div>
+    
+    
+    <script type="text/javascript">
+    
+    var range = document.querySelector("input[type='range']"),
+        output = document.querySelector("#demo-range .output");
+        
+    range.addEventListener("change", function(e){
+        output.innerHTML = "$" + e.target.value;
+    })             
+                         
+    
+    
+    
+    // custom input error message
+    var input = document.querySelector("#demo-validation .custom");   
+    input.setCustomValidity("Cum te numești?")   
+    
+    
+    // custom input error message
+    
+    </script> 
+    
+</body>
+</html>
